@@ -890,8 +890,8 @@ select:focus {
     }
 
     .description_contain {
-        width: inherit;
-        margin: 0 1rem;
+        width: 500px;
+        margin: auto;
     }
 
     .options-sandbox {
