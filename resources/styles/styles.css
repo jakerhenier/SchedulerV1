@@ -722,9 +722,6 @@ select:focus {
 }
 
 .options-sandbox {
-    /*background-color: #999999;
-    width: 3rem;
-    height: 7rem;*/
     position: absolute;
     left: .5rem;
     bottom: .3rem;
@@ -756,7 +753,7 @@ select:focus {
 .option_logo {
     width: 1.5rem;
     height: 1.5rem;
-    background-color: #333333;
+    /*background-color: #eeeeee;*/
     border-radius: 50%;
     position: absolute;
     margin: .75rem;
@@ -766,8 +763,60 @@ select:focus {
     background-color: #e4d236;
 }
 
+.logo-pen {
+    transform: rotate(45deg);
+}
+
+.logo-pen > div {
+    position: absolute;
+    left: 33%;
+}
+
+.pen_top {
+    width: .5rem;
+    border: .1rem solid #333333;
+}
+
+.pen_body {
+    width: .5rem;
+    height: 1rem;
+    top: 13%;
+    border: .1rem solid #333333;
+}
+
+.pen_tip {
+    width: .5rem;
+    top: 83%;
+    border-top: .25rem solid #333333;
+    border-left: .25rem solid transparent;
+    border-right: .25rem solid transparent;
+    border-bottom: .25rem solid transparent;
+}
+
 .delete:hover {
     background-color: #f57070;
+}
+
+.logo-stop > div {
+    position: absolute;
+}
+
+.stop_circle {
+    width: 90%;
+    height: 90%;
+    top: 5%;
+    left: 5%;
+    border: .1rem solid #333333;
+    border-radius: 50%;
+}
+
+.stop_line {
+    width: .1rem;
+    height: 88%;
+    border: .1rem solid #333333;
+    top: 5%;
+    left: 40%;
+    transform: rotate(40deg);
 }
 
 /**********HISTORY PROPERTIES*********/
@@ -782,8 +831,10 @@ select:focus {
 
 .list_header {
     height: 4rem;
-    position: fixed;
+    position: absolute;
+    top: 0;
     box-shadow: 0 0 1rem .5rem rgba(0,0,0,.05);
+    z-index: 4;
 }
 
 .hist_sandbox {
@@ -864,16 +915,29 @@ select:focus {
 
 .list_box {
     padding-top: 6rem;
+    position: relative;
+    z-index: 0;
 }
 
 .hist-items {
-    height: 200%;
+}
+
+.item_hist {
+    width: 100%;
+    height: 50px;
+    background-color: #999999;
 }
 
 /*****END OF HISTORY PROPERTIES*******/
 
 ::selection {
     background: #efde4c;
+}
+
+@media screen and (max-width: 1130px) {
+    .options-sandbox {
+        top: 3.5rem;
+    }
 }
 
 @media screen and (max-width: 1000px) {
@@ -889,16 +953,46 @@ select:focus {
         width: 100%;
     }
 
-    .description_contain {
+    .description_contain,
+    .fields-box {
         width: 500px;
         margin: auto;
     }
-
-    .options-sandbox {
-        top: 3.5rem;
-    }
 }
 
+@media screen and (max-width: 840px) {
+    .sandbox {
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .left {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+
+    .text {
+        width: 75%;
+    }
+
+    .image {
+        display: block;
+    }
+
+    .right {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: none;
+    }
+
+    .modal-pages {
+        position: absolute;
+        z-index: 5;
+    }
+}
 
 @media screen and (max-width: 600px) {
     .dialog_login {
