@@ -30,9 +30,22 @@ p {
 .sandbox {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     width: 100%;
     height: 100%;
 }
+
+/******LOGIN PAGE PROPERTIES******/
+.dialog_login {
+    width: 5in;
+    height: 5in;
+    align-self: center;
+    background-color: #ffffff;
+    border-radius: .25rem;
+    box-shadow: 0 .1rem .5rem .25rem rgba(0,0,0,.1);
+}
+
+/********END OF PAGE PROPERTIES********/
 
 .sandbox-item {
     height: 100%;
@@ -325,8 +338,8 @@ p {
     position: absolute;
     top: .2rem;
     right: 1.25rem;
-    width: 3rem;
-    height: 3rem;
+    width: 2.25rem;
+    height: 2.25rem;
     border-radius: .25rem;
     cursor: pointer;
     z-index: 3;
@@ -350,10 +363,10 @@ p {
 
 .ex {
     width: 2px;
-    height: 30px;
+    height: 20px;
     background-color: #999999;
     position: absolute;
-    right: 1.35rem;
+    right: 1.75rem;
     top: .5rem;
 }
 
@@ -758,4 +771,11 @@ select:focus {
 
 ::selection {
     background: #efde4c;
+}
+
+@media screen and (max-width: 600px) {
+    .dialog_login {
+        width: 100%;
+        height: 100%;
+    }
 }
