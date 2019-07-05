@@ -3,15 +3,12 @@ let addButton = document.getElementById('add-button');
 let closeButton = document.getElementById('close-button');
 let descriptionModal = document.getElementById('post-description');
 let addingForm = document.getElementById('compose-post');
-let confirmPopup = document.getElementById('confirm-discard');
+let deletePopup = document.getElementById('confirm-delete');
 
 let listItem = document.getElementsByClassName('list-item');
 let modalItems = document.getElementsByClassName('modal-pages');
 
-let yesClick = document.getElementById('yes');
-let noClick = document.getElementById('no');
-
-addButton.addEventListener('click', openForm);
+addButton.addEventListener('click', openAddForm);
 closeButton.addEventListener('click', closeModal);
 for (let x = 0; x < listItem.length; x++) listItem[x].addEventListener('click', openDescription);
 
@@ -24,14 +21,22 @@ function checkOpenModal() {
 	closeButton.style.display = 'block';
 }
 
-function openForm() {
+function openAddForm() {
 	let addForm = document.getElementById('adding-form');
     
     checkOpenModal();
     if(addForm.style.display = 'none') {
         addForm.style.display = 'block';
     }
- 	// location.href = "forms/add.html";
+}
+
+function openEditForm() {
+	let editForm = document.getElementById('editing-form');
+
+	checkOpenModal();
+	if(editForm.style.display = 'none') {
+        editForm.style.display = 'block';
+    }
 }
 
 function openDescription() {
@@ -39,57 +44,16 @@ function openDescription() {
 	descriptionModal.style.display = 'block';
 }
 
-function checkForInput() {
-	for (let x = 0; x < addingForm.length; x++) {
-		if (addingForm[x].value != "") {
-			confirmPopup.style.display = 'grid';
-
-			yesClick.onclick = () => {
-				for (let x = 0; x < modalItems.length; x++) {
-		        	modalItems[x].style.display = 'none';
-		    	}
-		    	closeButton.style.display = 'none';
-		    	confirmPopup.style.display = 'none';
-
-		    	for (let x = 0; x < addingForm.length; x++) {
-		    		addingForm[x].value = '';
-		    	}
-			}
-
-			noClick.onclick = () => {
-				confirmPopup.style.display = 'none';
-			}
-		}
+function confirmDelete() {
+	console.log('deleting...');
+	if (deletePopup.style.display = 'none') {
+		deletePopup.style.display = 'grid';
 	}
 }
 
 function closeModal() {
-	// for (let x = 0; x < addingForm.length; x++) {
-	// 	if (addingForm[x].value != "") {
-	// 		confirmPopup.style.display = 'grid';
-
-	// 		yesClick.onclick = () => {
-	// 			for (let x = 0; x < modalItems.length; x++) {
-	// 	        	modalItems[x].style.display = 'none';
-	// 	    	}
-	// 	    	closeButton.style.display = 'none';
-	// 	    	confirmPopup.style.display = 'none';
-
-	// 	    	for (let x = 0; x < addingForm.length; x++) {
-	// 	    		addingForm[x].value = '';
-	// 	    	}
-	// 		}
-
-	// 		noClick.onclick = () => {
-	// 			confirmPopup.style.display = 'none';
-	// 		}
-	// 	}
-	// }
-	checkForInput();
-
 	for (let x = 0; x < modalItems.length; x++) {
     	modalItems[x].style.display = 'none';
 	}
 	closeButton.style.display = 'none';
-	confirmPopup.style.display = 'none';
 }

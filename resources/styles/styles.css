@@ -17,14 +17,10 @@ html, body {
 }
 
 a {
-    color: #aaaaaa;
+    color: #333333;
+    width: fit-content;
     text-decoration: none;
     transition: all .1s linear;
-}
-
-a:hover {
-    text-decoration: underline;
-    color: #333333;
 }
 
 p {
@@ -82,9 +78,70 @@ p {
     box-shadow: 0 0 .25rem .25rem rgba(0, 0, 0, .1);
 }
 
+.toolbar-history {
+    width: 1.75rem;
+    height: 1.75rem;
+    /*background-color: #999999;*/
+    position: relative;
+    float: right;
+    margin-top: .5rem;
+    margin-right: 1.25rem;
+    cursor: pointer;
+}
+
+.histbt {
+    position: absolute;
+    border: 3px solid #aaaaaa;
+}
+
+.face {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.arrow_box {
+    border: none;
+    width: auto;
+    height: 10px;
+    overflow: hidden;
+    background-color: #ffffff;
+    right: -.3rem;
+    top: .8rem;
+    z-index: 1;
+}
+
+.arrow {
+    border-top: 7px solid #aaaaaa;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+}
+
+.hand1,
+.hand2 {
+    border: none;
+    width: 3px;
+    height: 10px;
+    background-color: #aaaaaa;
+}
+
+.hand1 {
+    top: .37rem;
+    left: .76rem;
+}
+
+.hand2 {
+    height: 8px;
+    transform: rotate(90deg);
+    top: .7rem;
+    left: .57rem;
+}
+
 .toolbar-addbt {
     position: relative;
-    margin-top: .45rem;
+    margin-top: .55rem;
     float: right;
     width: 2.3rem;
     height: 2.3rem;
@@ -94,7 +151,7 @@ p {
 }
 
 .addbt {
-    height: 2rem;
+    height: 1.7rem;
     width: 5px;
     background-color: #aaaaaa;
     position: absolute;
@@ -318,11 +375,10 @@ p {
 .sandbox-popup {
     position: fixed;
     width: inherit;
-    height: 100%;
+    height: inherit;
     background-color: rgba(0,0,0,.75);
     z-index: 4;
     display: none;
-    /*display: grid;*/
     align-content: center;
     justify-content: center;
 }
@@ -354,12 +410,12 @@ p {
 }
 
 .decide_bt {
-    width: 47%;
+    width: 48%;
     padding: .75rem;
     text-align: center;
     border: 2px solid #e4d236;
     border-radius: .25rem;
-    transition: all .1s linear;
+    transition: all .07s linear;
     cursor: pointer;
 }
 
@@ -429,7 +485,8 @@ h2 {
     text-align: center;
 }
 
-.add-entry {
+.add-entry,
+.edit-entry {
     display: none;
     transition: all .1s linear;
 }
@@ -485,14 +542,19 @@ h2 {
     width: 100%;
     text-align: center;
     padding: .5rem 1rem;
-    border: 1px solid #dddddd;
+    border-left: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    border-top: 1px solid #dddddd;
     background: none;
     cursor: pointer;
+    position: relative;
     transition: all .07s linear;
 }
 
 .img-upload:hover {
-    border: 1px solid #e4d236;
+    border-left: 1px solid #e4d236;
+    border-right: 1px solid #e4d236;
+    border-top: 1px solid #e4d236;
     background-color: #e4d236;
 }
 
@@ -500,10 +562,21 @@ input[type=file] {
     display: none;
 }
 
+.add-img_icon {
+    width: 3px;
+    height: 1rem;
+    background-color: #555555;
+    position: absolute;
+    left: 38%;
+    margin-top: .16rem;
+}
+
 .img-prev_box {
     width: 100%;
     height: 3rem;
-    border: 1px solid #dddddd;
+    border-left: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
 }
 
 .pages-list {
@@ -611,7 +684,8 @@ select:focus {
     padding: 4rem 0 2rem;
 }
 
-.sandbox-modal_adding {
+.sandbox-modal_adding,
+.sandbox-modal_editing {
     padding: 0;
     overflow: auto;
 }
@@ -633,15 +707,55 @@ select:focus {
     margin-bottom: 1rem;
 }
 
-/*   BOTTOM ACTIONS PROPERTIES   */
-.modal_bottom-actions {
-    width: 100%;
-    height: 4rem;
-    background-color: #777777;
+.options-sandbox {
+    /*background-color: #999999;
+    width: 3rem;
+    height: 7rem;*/
+    position: absolute;
+    left: .5rem;
+    bottom: .3rem;
+}
+
+.option-box {
+    background-color: #dddddd;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    text-align: left;
+    line-height: 3rem;
+    margin-bottom: .25rem;
+    cursor: pointer;
     position: relative;
-    bottom:;
+    transition: all .15s ease-out;
+}
+
+.option-box:hover {
+    width: 7rem;
+}
+
+.option-box span {
+    position: absolute;
+    left: 3rem;
+}
+
+.option_logo {
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: #333333;
+    border-radius: 50%;
+    position: absolute;
+    margin: .75rem;
+}
+
+.edit:hover {
+    background-color: #e4d236;
+}
+
+.delete:hover {
+    background-color: #f57070;
 }
 
 ::selection {
     background: #efde4c;
-};
+}

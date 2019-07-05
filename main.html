@@ -16,6 +16,17 @@
                         <div class="addbt vertical-line"></div>
                         <div class="addbt horizontal-line"></div>
                     </div>
+                    <!-- CODE BLOCK FOR HISTORY BUTTON -->
+                    <a href="" target="_blank">
+                        <div class="toolbar-history">
+                            <div class="histbt face"></div>
+                            <div class="histbt arrow_box">
+                                <div class="arrow"></div>
+                            </div>
+                            <div class="histbt hand1"></div>
+                            <div class="histbt hand2"></div>
+                        </div>
+                    </a>
                     <!-- CODE BLOCK FOR CREDENTIALS DISPLAY -->
                     <div class="toolbar-credentials">
                         <p id="username">Juan dela Cruz</p>
@@ -188,16 +199,16 @@
             </div>
             <!-- RIGHT HEMISPHERE OF THE INTERFACE -->
             <div class="sandbox-item right">
-                <!-- WARNING POP-UPS -->
-                <div class="sandbox-popup confirm-discard" id="confirm-discard">
-                    <div class="popup_dialog discard-post">
-                        <p>Discard post?</p>
+                <!-- DELETE POP-UP -->
+                <div class="sandbox-popup confirm-delete" id="confirm-delete">
+                    <div class="popup_dialog delete-post">
+                        <p>Delete post?</p>
                         <div class="dialog-button_box">
-                            <div class="decide_bt" id="yes">Discard</div>
-                            <div class="decide_bt" id="no">Keep editing</div>
+                            <div class="decide_bt" id="yes" onclick="">Delete</div>
+                            <div class="decide_bt" id="no" onclick="deletePopup.style.display = 'none';">Keep</div>
                         </div>
                     </div>
-                </div>
+                </div>  
 
                 <div class="empty-prompt">
                     <div class="empty-prompt_icon">
@@ -219,6 +230,8 @@
                                     <textarea name="" id="caption" cols="30" rows="5" placeholder="Your caption here..."></textarea>
                                     <label class = "img-add_box">
                                         <div class="img-upload">
+                                            <div class="addbt vertical-line add-img_icon"></div>
+                                            <div class="addbt horizontal-line add-img_icon"></div>
                                             add images
                                             <input type="file" name="" id="" accept="image/*">
                                         </div>
@@ -252,6 +265,52 @@
                     </div>
                 </div>
 
+                <!-- POST EDITING FORM -->
+                <div class="modal-pages edit-entry" id="editing-form">
+                    <div class = "sandbox-modal sandbox-modal_editing">
+                        <h2>Edit composition</h2>
+                        <div class="fields-box">
+                            <form action="" method="post" id="compose-post">
+                                <div class="field-item_box input_box">
+                                    <p class="input-text">Contents</p>
+                                    <textarea name="" id="caption" cols="30" rows="5" placeholder="Your caption here..."></textarea>
+                                    <label class = "img-add_box">
+                                        <div class="img-upload">
+                                            <div class="addbt vertical-line add-img_icon"></div>
+                                            <div class="addbt horizontal-line add-img_icon"></div>
+                                            add images
+                                            <input type="file" name="" id="" accept="image/*">
+                                        </div>
+                                        <div class="img-prev_box">
+                                            <!-- PREVIEWS ARE SHOWN HERE -->
+                                        </div>
+                                    </label>
+                                </div>
+
+                                <div class="field-item_box select_box">
+                                    <p class="input-text">Select pages and groups</p>
+                                    <div class="pages-list">
+                                        <!-- API CHUCHU codes here -->
+                                    </div>
+                                </div>
+
+                                <div class="field-item_box">
+                                    <p class="input-text">Schedule</p>
+                                    <input type="date" name="date">
+                                    <input type="number" name="hour" placeholder="hh" max="12">
+                                    <input type="number" name="minute" placeholder="mm" max="59">
+                                    <select>
+                                        <option value="AM" selected>AM</option>
+                                        <option value="PM">PM</option>
+                                    </select>
+                                </div>
+
+                                <button type="submit" id="schedulebt">Save changes</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- DESCRIPTION MODAL -->
                 <div class="modal-pages description-entry" id="post-description">
                     <div class="sched-ribbon">
@@ -262,6 +321,20 @@
                             <div class="icon_ribbon-cal cal-head"></div>
                         </div>
                         <p class="ribbon_text">Scheduled posting on <b>July 1, 2019</b> at <b>8:00 AM</b></p>
+                    </div>
+                    <div class = "options-sandbox">
+                        <a id="edit-button" onclick="openEditForm();"> <!-- EDIT BUTTON -->
+                            <div class="option-box edit">
+                                <div class="option_logo"></div>
+                                <span>Edit</span>
+                            </div>
+                        </a>
+                        <a id="delete-button" onclick="confirmDelete();"> <!-- DELETE BUTTON -->
+                            <div class="option-box delete">
+                                <div class="option_logo"></div>
+                                <span>Delete</span>
+                            </div>
+                        </a>
                     </div>
                     <div class="sandbox-modal">
                         <div class = "description_contain">
