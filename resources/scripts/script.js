@@ -41,6 +41,14 @@ function openEditForm() {
 
 function openDescription() {
 	checkOpenModal();
+	// if(window.innerWidth == '840') {
+	// 	document.getElementsByClassName('sandbox-item')[1].style.display = 'block';
+	// 	document.getElementsByClassName('sandbox-item')[0].style.display = 'none';
+	// }
+	// else {
+	// 	document.getElementsByClassName('sandbox-item')[1].style.display = 'block';
+	// 	document.getElementsByClassName('sandbox-item')[0].style.display = 'block';
+	// }
 	descriptionModal.style.display = 'block';
 }
 
@@ -56,4 +64,12 @@ function closeModal() {
     	modalItems[x].style.display = 'none';
 	}
 	closeButton.style.display = 'none';
+	// if(window.innerWidth = '840') {
+	// 	document.getElementsByClassName('sandbox-item')[1].style.display = 'none';
+	// 	document.getElementsByClassName('sandbox-item')[0].style.display = 'block';
+	// }
+	// else {
+	// 	document.getElementsByClassName('sandbox-item')[1].style.display = 'block';
+	// 	document.getElementsByClassName('sandbox-item')[0].style.display = 'block';
+	// }
 }
